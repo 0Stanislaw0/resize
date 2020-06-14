@@ -1,11 +1,8 @@
 import os
 import logging
-
 from celery import current_app
 from celery.contrib.abortable import AbortableAsyncResult
-
 from django.conf import settings
-
 from .tasks import make_thumbnails
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
@@ -17,7 +14,6 @@ from rest_framework.status import (
     HTTP_201_CREATED,
     HTTP_204_NO_CONTENT,)
 from drf_yasg.utils import swagger_auto_schema
-
 from drf_yasg import openapi
 from .yasg import post_resize
 
@@ -38,8 +34,12 @@ def send_image(request):
         with open(file_path, 'wb+') as fp:
             for chunk in request.FILES['image_file']:
                 fp.write(chunk)
-        h = int(request.POST.get('height'))
-        w = int(request.POST.get('width'))
+        try:
+            h = int(request.POST.get('height'))
+            w = int(request.POST.get('width'))
+        except ValueError as e:
+            return Response(status=HTTP_400_BAD_REQUEST)
+            
         if 9999 > h > 1 and 9999 > w > 1:
             task = make_thumbnails.delay(file_path, thumbnails=[(h, w)])
             return Response({
