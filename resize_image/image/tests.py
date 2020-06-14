@@ -63,4 +63,4 @@ class TestApi(TestCase):
 
     def test_cansel_task(self):
         response = self.client.delete(f'/cansel_task/{self.task.id}/')
-        self.assertEqual(response.status_code,HTTP_200_OK)
+        self.assertEqual(response.status_code,HTTP_204_NO_CONTENT)
