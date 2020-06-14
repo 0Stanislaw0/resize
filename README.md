@@ -3,7 +3,7 @@ https://docs.google.com/document/d/1i1xxa2WpCFEellzIU8kI27StvWyTejqO5EiwoWYzg38/
 
 ## Выполнение тестового задания.
 
-Использовал django потому что из предложенных технологий, знаком больше всего.
+Использовал django потому что из предложенных технологий, знаком c ним больше всего.
 
 django-rest-framework для реализации API.
 
