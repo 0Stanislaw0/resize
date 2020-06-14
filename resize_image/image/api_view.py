@@ -38,6 +38,7 @@ def send_image(request):
             h = int(request.POST.get('height'))
             w = int(request.POST.get('width'))
         except ValueError as e:
+            logger.debug("Введены некорректные данные")
             return Response(status=HTTP_400_BAD_REQUEST)
             
         if 9999 > h > 1 and 9999 > w > 1:
