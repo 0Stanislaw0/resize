@@ -4,9 +4,15 @@ https://docs.google.com/document/d/1i1xxa2WpCFEellzIU8kI27StvWyTejqO5EiwoWYzg38/
 ## Выполнение тестового задания.
 
 Использовал django потому что из предложенных технологий, знаком больше всего.
+
 django-rest-framework для реализации API.
+
 celery для асинхронного выполнения ресайзинга.
-redis в качестве брокера для celery/
+
+redis в качестве брокера для celery.
+
++ drf-yasg.
+
 
 Для работы с приложением выполните следующие шаги:
 
@@ -27,7 +33,7 @@ redis в качестве брокера для celery/
 	redis-server
 	celery worker -A resize_image --loglevel=info
 
-### 4. Запустите сервер:
+### 4. Запустите сервер и перейдите на http://127.0.0.1:8000/swagger/:
 
 ###     
 	python3 manage.py runserver
