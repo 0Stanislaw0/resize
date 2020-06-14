@@ -3,7 +3,10 @@ https://docs.google.com/document/d/1i1xxa2WpCFEellzIU8kI27StvWyTejqO5EiwoWYzg38/
 
 ## Выполнение тестового задания.
 
-Использовал django, django-rest-framework, celery, redis.
+Использовал django потому что из предложенных технологий, знаком больше всего.
+django-rest-framework для реализации API.
+celery для асинхронного выполнения ресайзинга.
+redis в качестве брокера для celery/
 
 Для работы с приложением выполните следующие шаги:
 
